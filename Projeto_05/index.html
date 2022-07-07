@@ -17,28 +17,31 @@
         </svg>            
     </nav>
     <div class="tasksIncomplete">
-        <div class="task">
-            <input type="checkbox" name="task" id="task1">
-            <label for="task1">Go shopping</label>
-        </div>
-        <div class="task">
-            <input type="checkbox" name="task" id="task2">
-            <label for="task2">Short</label>
-        </div>
-        <div class="task">
-            <input type="checkbox" name="task" id="task3">
-            <label for="task3">Go shopping</label>
-        </div>
-        <div class="task">
-            <input type="checkbox" name="task" id="task4">
-            <label for="task4">Go shopping</label>
-        </div>
+        
     </div>
     <div class="tasksCompleted">
         <h2>Completed</h2>
         
     </div>
+    <button>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 12.4C0 11.6268 0.626801 11 1.4 11H22.6C23.3732 11 24 11.6268 24 12.4C24 13.1732 23.3732 13.8 22.6 13.8H1.4C0.626801 13.8 0 13.1732 0 12.4Z" fill="#94ADCF"/>
+            <rect x="11" y="24" width="24" height="2.8" rx="1.4" transform="rotate(-90 11 24)" fill="#94ADCF"/>
+        </svg>            
+    </button>
 
+    <div class="modal-overlay">
+        <div class="modal">
+            <form action="" id="myform" onsubmit="newTasks(event)" class="newTask">
+                <label for="addTask">New Task</label>
+                <input required type="text" name="addTask" id="addTask">
+        </form>
+            <div class="buttons">
+                <button form="myform" type="submit" id="add">add</button>
+                <button id="cancel">cancel</button>
+            </div>
+        </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>
