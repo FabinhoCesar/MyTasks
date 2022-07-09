@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <nav>
         <h1>My Tasks</h1>
         <svg width="40" height="29" viewBox="0 0 40 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" width="28" height="5" rx="2.5" fill="#94ADCF"/>
-            <rect y="12" width="40" height="5" rx="2.5" fill="#94ADCF"/>
-            <rect x="17" y="24" width="23" height="5" rx="2.5" fill="#94ADCF"/>
-        </svg>            
+            <rect x="12" width="28" height="5" rx="2.5" fill="#94ADCF" />
+            <rect y="12" width="40" height="5" rx="2.5" fill="#94ADCF" />
+            <rect x="17" y="24" width="23" height="5" rx="2.5" fill="#94ADCF" />
+        </svg>
     </nav>
     <div class="tasksIncomplete">
-        
+        <div class="task">
+            <input onclick="whichId(event)" type="checkbox" name="task0" id="task0">
+            <label for="task0">Escrever uma música</label>
+        </div>
+        <div class="task">
+            <input onclick="whichId(event)" type="checkbox" name="task3" id="task3" class="task3">
+            <label for="task3"> sdaas</label>
+        </div>
     </div>
+
     <div class="tasksCompleted">
         <h2>Completed</h2>
-        
+        <div class="task completed">
+            <input onclick="whichId(event)" type="checkbox" name="task1" id="task1">
+            <label for="task1"> kj</label>
+        </div>
+        <div class="task completed">
+            <input onclick="whichId(event)" type="checkbox" name="task2" id="task2">
+            <label for="task2"> kjfsdfd</label>
+        </div>
     </div>
-    <button>
+
+    <button id="btnNewTask">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 12.4C0 11.6268 0.626801 11 1.4 11H22.6C23.3732 11 24 11.6268 24 12.4C24 13.1732 23.3732 13.8 22.6 13.8H1.4C0.626801 13.8 0 13.1732 0 12.4Z" fill="#94ADCF"/>
-            <rect x="11" y="24" width="24" height="2.8" rx="1.4" transform="rotate(-90 11 24)" fill="#94ADCF"/>
-        </svg>            
+            <path
+                d="M0 12.4C0 11.6268 0.626801 11 1.4 11H22.6C23.3732 11 24 11.6268 24 12.4C24 13.1732 23.3732 13.8 22.6 13.8H1.4C0.626801 13.8 0 13.1732 0 12.4Z"
+                fill="#94ADCF" />
+            <rect x="11" y="24" width="24" height="2.8" rx="1.4" transform="rotate(-90 11 24)" fill="#94ADCF" />
+        </svg>
     </button>
 
     <div class="modal-overlay">
@@ -35,13 +55,14 @@
             <form action="" id="myform" onsubmit="newTasks(event)" class="newTask">
                 <label for="addTask">New Task</label>
                 <input required type="text" name="addTask" id="addTask">
-        </form>
+            </form>
             <div class="buttons">
                 <button form="myform" type="submit" id="add">add</button>
                 <button id="cancel">cancel</button>
             </div>
         </div>
     </div>
-    <script src="./index.js"></script>
+    <script src="./index1.js"></script>
 </body>
+
 </html>
