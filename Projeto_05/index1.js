@@ -31,6 +31,7 @@ function newTasks(event) {
     event.preventDefault()
     addTasks()
     closeModal()
+    clearInput()
 }
 
 const newTask = document.getElementById('addTask')
@@ -49,7 +50,7 @@ let counter = 0
 
 function addHtml() {
     const html = `
-    <input onclick="whichId(event)" type="checkbox" name="task${counter}" id="task${counter}">
+    <input type="checkbox" name="task${counter}" id="task${counter}" onclick="searchIndexTasks(this.id)">
     <label for="task${counter}">${newTask.value}</label>
     `
     counter++
@@ -58,115 +59,37 @@ function addHtml() {
 
 // Criar um elemento na DOM para inserir o html
 
-function createElement() {
+function createDivTask() {
     const element = document.createElement('div')
     element.classList.add('task')
+    element.id = `task${counter}`
     return element
 }
 
 // Inserir o html dentro da DIV criada e colocar no display
 
 function addTasks() {
-    const element = createElement()
+    const element = createDivTask()
     element.innerHTML = addHtml()
     boxTasksIncomplete.appendChild(element)
 }
 
-// Pegar as divs para após adicionar a classe quando forem clicadas
-
-function attTasksIncomplete() {
-    const allTasksIncomplete = document.querySelectorAll('.tasksIncomplete .task')
-    console.log(allTasksIncomplete)
-    return allTasksIncomplete
-}
-
-function attTasksCompleted() {
-    const allTasksCompleted = document.querySelectorAll('.tasksCompleted .task')
-    return allTasksCompleted
-}
-
-// Coletar qual é o id da tarefa clicada
-let id
-
-function whichId(event) {
-    const el = event.target
-    id = el.id
-    id = id.replace('task', '')
-    console.log(id)
-    addOrRemoveClass()
-}
-
-// Pegar todos os inputs
-
-function inputsIncomplete() {
-    let inputsIncomplete = document.querySelectorAll('.tasksIncomplete input')
-    inputsIncomplete = Array.from(inputsIncomplete)
-    console.log('Inputs incompletos', inputsIncomplete)
-    return inputsIncomplete
-}
-
-function inputsComplete() {
-    let inputsComplete = document.querySelectorAll('.tasksCompleted input')
-    console.log('Inputs completos', inputsComplete)
-    return inputsComplete
-}
-
-// Função para descobrir o index dos inputs para executar as funções de add e remove class
-
-function searchIndexTaskIncomplete() {
-    let Incomplete = inputsIncomplete()
-    console.log(Incomplete.indexOf(`inputtask${id}`))
-    return Incomplete.indexOf(`#task${id}`)
-}
-
-function searchIndexTaskComplete() {
-    const inputsComplete = inputsComplete()
-
-}
-
-// Adicionar classe .completed nos inputs que foram clicados
-
-function addClass() {
-    console.log('id dentro de addClass', id)
-    const allTasksIncomplete = attTasksIncomplete()
-
-    allTasksIncomplete[id].classList.add('completed')
-
-    attDisplayCompleted()
-}
-
-// Remover classe .completed nos inptus que foram criados
-
-function removeClass() {
-    console.log('id dentro de removeClass', id)
-
-    const allTasksCompleted = attTasksCompleted()
-
-    allTasksCompleted[id].classList.remove('completed')
-
-    attDisplayIncomplete()
-}
-
-// Função que vai decidir se vai remover ou adicionar a classe
-
-function addOrRemoveClass() {
-    const allTasksIncomplete = attTasksCompleted()
-    const allTasksCompleted = attTasksIncomplete()
-
-    console.log('id dentro de addremoveClass', id)
-
-
-        if (allTasksCompleted) {
-            addClass()
-        
-        } else
-        if (allTasksIncomplete) {
-            removeClass()
+ // Função para descobrir o index dos inputs para executar as funções de add e remove class
+ function searchIndexTasks(nameId) {
+    let allTask = document.querySelectorAll('.task')
+    allTask = Array.from(allTask)
+     console.log(nameId)
+     console.log(allTask)
+    for (let task of allTask) {
+        if (task.id == nameId) {
+            task.classList.toggle('completed')
+            console.log(task.id)
+            attDisplayCompleted()
+            attDisplayIncomplete()
         }
-    
-
-
+    }
 }
+
 
 // Atualizar o display quando a tarefa for completada (mover a tarefa da box imcompleta para a completa)
 
@@ -185,5 +108,3 @@ function attDisplayIncomplete() {
         boxTasksIncomplete.appendChild(taskCompleted)
     }
 }
-
-searchIndexTaskIncomplete()

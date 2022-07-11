@@ -54,11 +54,11 @@ h1 {
     visibility: hidden;
 }
 
-.task input:checked+label::before {
+.task.completed label::before {
     background: var(--text-color);
 }
 
-.task input:checked+label {
+.task.completed label {
     text-decoration: line-through;
 }
 
