@@ -84,6 +84,16 @@ h1 {
     left: 14px;
 }
 
+.task div {
+    width: 20px;
+    height: 20px;
+}
+
+.task div svg {
+    position: absolute;
+    right: 18px;
+}
+
 h2 {
     font-size: 1.8rem;
     font-weight: 400;
