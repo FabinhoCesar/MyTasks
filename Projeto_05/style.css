@@ -185,3 +185,7 @@ button {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
 }
+
+.trash {
+    display: none;
+}
