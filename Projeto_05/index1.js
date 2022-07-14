@@ -1,11 +1,32 @@
-// Nome do ID
-let nameID = ""
-
 // Caixas das tarefas
 
 const boxTasksIncomplete = document.querySelector('.tasksIncomplete')
 const boxTasksComplete = document.querySelector('.tasksCompleted')
 const boxTrash = document.querySelector('.trash')
+
+// Pegar o dado inserido pelo usuario
+
+const newTask = document.getElementById('addTask')
+
+
+// Criar um contador para colocar no id dos inputs
+
+let counter = 0
+
+let array = []
+
+const tasks = JSON.parse(localStorage.getItem("Tasks")) || ''
+
+if (tasks != '') {
+    for (let task of tasks) {
+        addTasks(task.id, task.task)
+    }
+}
+
+
+// Nome do ID
+let nameID = ""
+
 
 // Abrir o modal para adicionar a tarefa
 
@@ -29,16 +50,27 @@ function closeModal() {
 
 btnCancel.addEventListener('click', closeModal)
 
+
 // Pegar a tarefa inserida pelo usuário
 
 function newTasks(event) {
     event.preventDefault()
-    addTasks()
+    addTasks(counter, newTask.value)
+    arrayTasks(newTask, counter)
     closeModal()
     clearInput()
 }
 
-const newTask = document.getElementById('addTask')
+// Criar uma função que vai pegar o valor inserido add um id
+
+function arrayTasks(newTask, counter) {
+    let task = {
+        id: counter,
+        task: newTask.value
+    }
+    array.push(task)
+    localStorage.setItem("Tasks", JSON.stringify(array))
+}
 
 // Criar função para limpar a tarefa inserida pelo usuário
 
@@ -46,17 +78,13 @@ function clearInput() {
     newTask.value = ' '
 }
 
-// Criar um contador para colocar no id dos inputs
-
-let counter = 0
-
 // Criar o html para inserir a tarefa do usuario
 
-function addHtml() {
+function addHtml(id, task) {
     const html = `
-        <input type="checkbox" name="task${counter}" id="task${counter}" onclick="searchIndexTasks(this.id)">
-        <label for="task${counter}">${newTask.value}</label>
-            <div onclick="removeTask(this.id)" id="dask${counter}">
+        <input type="checkbox" name="task${id}" id="task${id}" onclick="searchIndexTasks(this.id)">
+        <label for="task${id}">${task}</label>
+            <div onclick="removeTask(this.id)" id="dask${id}">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 26 26"
                     style=" fill:#556479;">
                     <path
@@ -70,18 +98,18 @@ function addHtml() {
 
 // Criar um elemento na DOM para inserir o html
 
-function createDivTask() {
+function createDivTask(id) {
     const element = document.createElement('div')
     element.classList.add('task')
-    element.id = `tasx${counter}`
+    element.id = `tasx${id}`
     return element
 }
 
 // Inserir o html dentro da DIV criada e colocar no display
 
-function addTasks() {
-    const element = createDivTask()
-    element.innerHTML = addHtml()
+function addTasks(id, task) {
+    const element = createDivTask(id)
+    element.innerHTML = addHtml(id, task)
     boxTasksIncomplete.appendChild(element)
     boxTasksIncomplete.insertBefore(element, boxTasksIncomplete.children[0])
 }
