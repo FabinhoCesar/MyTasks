@@ -23,6 +23,10 @@ if (tasks != '') {
     }
 }
 
+function save() {
+    localStorage.setItem("Tasks", JSON.stringify(array))
+}
+
 
 // Nome do ID
 let nameID = ""
@@ -69,7 +73,7 @@ function arrayTasks(newTask, counter) {
         task: newTask.value
     }
     array.push(task)
-    localStorage.setItem("Tasks", JSON.stringify(array))
+    save()
 }
 
 // Criar função para limpar a tarefa inserida pelo usuário
