@@ -21,6 +21,11 @@ body {
     padding: 5.5rem 2.8rem;
 }
 
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -70,6 +75,8 @@ h1 {
 
 .task label {
     font-weight: 500;
+    width: 100%;
+    cursor: pointer;
 }
 
 .task label::before {
@@ -84,15 +91,6 @@ h1 {
     left: 14px;
 }
 
-.task div {
-    width: 20px;
-    height: 20px;
-}
-
-.task div svg {
-    position: absolute;
-    right: 18px;
-}
 
 h2 {
     font-size: 1.8rem;
@@ -100,7 +98,7 @@ h2 {
     margin-bottom: 3rem;
 }
 
-button {
+#btnNewTask {
     background: #38404B;
     box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
     border-radius: 50px;
@@ -109,7 +107,8 @@ button {
     height: 5rem;
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .modal-overlay {
@@ -140,6 +139,7 @@ button {
     box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
     border-radius: 20px;
     width: 90%;
+    max-width: 500px;
     height: 12rem;
     transform: scale(0);
     transition: all .5s ease-in-out;
@@ -184,8 +184,15 @@ button {
     color: var(--text-color);
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
+    background-color: var(--bg-color);
+    box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
+    border: none;
 }
 
 .trash {
     display: none;
 }
+
+
+
+

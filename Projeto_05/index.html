@@ -5,52 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>My Tasks</title>
 </head>
 
 <body>
-
-    <nav>
-        <h1>My Tasks</h1>
-        <svg width="40" height="29" viewBox="0 0 40 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" width="28" height="5" rx="2.5" fill="#94ADCF" />
-            <rect y="12" width="40" height="5" rx="2.5" fill="#94ADCF" />
-            <rect x="17" y="24" width="23" height="5" rx="2.5" fill="#94ADCF" />
-        </svg>
-    </nav>
-    <div class="tasksIncomplete">
-    </div>
-
-    <div class="tasksCompleted">
-        <h2>Completed</h2>
-
-    </div>
-
-    <div class="trash">
-        <h2>Trash</h2>
-    </div>
-
-    <button id="btnNewTask">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M0 12.4C0 11.6268 0.626801 11 1.4 11H22.6C23.3732 11 24 11.6268 24 12.4C24 13.1732 23.3732 13.8 22.6 13.8H1.4C0.626801 13.8 0 13.1732 0 12.4Z"
-                fill="#94ADCF" />
-            <rect x="11" y="24" width="24" height="2.8" rx="1.4" transform="rotate(-90 11 24)" fill="#94ADCF" />
-        </svg>
-    </button>
-
-    <div class="modal-overlay">
-        <div class="modal">
-            <form action="" id="myform" onsubmit="newTasks(event)" class="newTask">
-                <label for="addTask">New Task</label>
-                <input required type="text" name="addTask" id="addTask">
-            </form>
-            <div class="buttons">
-                <button form="myform" type="submit" id="add">add</button>
-                <button id="cancel">cancel</button>
+    <div class="container">
+        <nav>
+            <h1>My Tasks</h1>
+            <svg width="40" height="29" viewBox="0 0 40 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="12" width="28" height="5" rx="2.5" fill="#94ADCF" />
+                <rect y="12" width="40" height="5" rx="2.5" fill="#94ADCF" />
+                <rect x="17" y="24" width="23" height="5" rx="2.5" fill="#94ADCF" />
+            </svg>
+        </nav>
+        <div class="tasksIncomplete">
+        </div>
+    
+        <div class="tasksCompleted">
+            <h2>Completed</h2>
+    
+        </div>
+    
+        <div class="trash">
+            <h2>Trash</h2>
+        </div>
+    
+        <button id="btnNewTask">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 12.4C0 11.6268 0.626801 11 1.4 11H22.6C23.3732 11 24 11.6268 24 12.4C24 13.1732 23.3732 13.8 22.6 13.8H1.4C0.626801 13.8 0 13.1732 0 12.4Z"
+                    fill="#94ADCF" />
+                <rect x="11" y="24" width="24" height="2.8" rx="1.4" transform="rotate(-90 11 24)" fill="#94ADCF" />
+            </svg>
+        </button>
+    
+        <div class="modal-overlay">
+            <div class="modal">
+                <form action="" id="myform" onsubmit="newTasks(event)" class="newTask">
+                    <label for="addTask">New Task</label>
+                    <input required type="text" name="addTask" id="addTask">
+                </form>
+                <div class="buttons">
+                    <button form="myform" type="submit" id="add">add</button>
+                    <button id="cancel">cancel</button>
+                </div>
             </div>
         </div>
     </div>
+    
     <script src="./index1.js"></script>
 </body>
 
